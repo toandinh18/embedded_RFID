@@ -16,4 +16,3 @@ Route::get('/', function () {
 });
 
 Route::resource('users','UserController');
-Route::post('users/getdata','UserController@getdata');

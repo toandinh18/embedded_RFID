@@ -29,14 +29,16 @@
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
 #include "inc/hw_i2c.h"
+#include "inc/hw_timer.h"
+#include "inc/hw_uart.h"
 
+#include "driverlib/systick.h"
 #include "driverlib/gpio.h"
 #include "driverlib/pin_map.h"
 #include "driverlib/sysctl.h"
 #include "driverlib/uart.h"
 #include "driverlib/ssi.h"
 #include "utils/uartstdio.h"
-#include "LIB/Mfrc522.h"
 #include "uartstdio.h"
 #include "driverlib/can.h"
 #include "driverlib/eeprom.h"
@@ -55,5 +57,6 @@
 #include "LIB/Mfrc522.h"
 #include "UART/UART.h"
 #include "RTC/RTC.h"
+#include "TIMER/timer.h"
 
 #endif /* INCLUDE_H_ */

@@ -117,7 +117,9 @@
 
 #define chipSelectPin  0x20     //GPIO_PORTB_BASE
 #define NRSTPD    0x01       //GPIO_PORTF_BASE
-
+    extern void InitSSI();
+    extern void initLeds();
+    extern void dumpHex(unsigned char* buffer, int len);
 	extern	void WriteReg(unsigned char addr, unsigned char val);
 	extern	unsigned char ReadReg(unsigned char addr);
 	extern	void SetBitMask(unsigned char reg, unsigned char mask);

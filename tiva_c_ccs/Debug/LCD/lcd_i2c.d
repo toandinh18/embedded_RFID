@@ -15,6 +15,9 @@ LCD/lcd_i2c.obj: C:/ti/TivaWare/inc/hw_gpio.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/inc/hw_memmap.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/inc/hw_types.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/inc/hw_i2c.h
+LCD/lcd_i2c.obj: C:/ti/TivaWare/inc/hw_timer.h
+LCD/lcd_i2c.obj: C:/ti/TivaWare/inc/hw_uart.h
+LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/systick.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/gpio.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/pin_map.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/sysctl.h
@@ -22,7 +25,6 @@ LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/uart.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/ssi.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/utils/uartstdio.h
 LCD/lcd_i2c.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdarg.h
-LCD/lcd_i2c.obj: ../LCD/../LIB/Mfrc522.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/can.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/eeprom.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/i2c.h
@@ -36,9 +38,11 @@ LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/qei.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/fpu.h
 LCD/lcd_i2c.obj: C:/ti/TivaWare/driverlib/rom.h
 LCD/lcd_i2c.obj: ../LCD/../LCD/lcd_i2c.h
+LCD/lcd_i2c.obj: ../LCD/../LIB/Mfrc522.h
 LCD/lcd_i2c.obj: ../LCD/../UART/UART.h
 LCD/lcd_i2c.obj: ../LCD/../RTC/RTC.h
 LCD/lcd_i2c.obj: ../LCD/../RTC/../include.h
+LCD/lcd_i2c.obj: ../LCD/../TIMER/timer.h
 
 ../LCD/lcd_i2c.c: 
 ../LCD/lcd_i2c.h: 
@@ -55,6 +59,9 @@ C:/ti/TivaWare/inc/hw_gpio.h:
 C:/ti/TivaWare/inc/hw_memmap.h: 
 C:/ti/TivaWare/inc/hw_types.h: 
 C:/ti/TivaWare/inc/hw_i2c.h: 
+C:/ti/TivaWare/inc/hw_timer.h: 
+C:/ti/TivaWare/inc/hw_uart.h: 
+C:/ti/TivaWare/driverlib/systick.h: 
 C:/ti/TivaWare/driverlib/gpio.h: 
 C:/ti/TivaWare/driverlib/pin_map.h: 
 C:/ti/TivaWare/driverlib/sysctl.h: 
@@ -62,7 +69,6 @@ C:/ti/TivaWare/driverlib/uart.h:
 C:/ti/TivaWare/driverlib/ssi.h: 
 C:/ti/TivaWare/utils/uartstdio.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdarg.h: 
-../LCD/../LIB/Mfrc522.h: 
 C:/ti/TivaWare/driverlib/can.h: 
 C:/ti/TivaWare/driverlib/eeprom.h: 
 C:/ti/TivaWare/driverlib/i2c.h: 
@@ -76,6 +82,8 @@ C:/ti/TivaWare/driverlib/qei.h:
 C:/ti/TivaWare/driverlib/fpu.h: 
 C:/ti/TivaWare/driverlib/rom.h: 
 ../LCD/../LCD/lcd_i2c.h: 
+../LCD/../LIB/Mfrc522.h: 
 ../LCD/../UART/UART.h: 
 ../LCD/../RTC/RTC.h: 
 ../LCD/../RTC/../include.h: 
+../LCD/../TIMER/timer.h: 

@@ -15,6 +15,9 @@ LIB/Mfrc522.obj: C:/ti/TivaWare/inc/hw_gpio.h
 LIB/Mfrc522.obj: C:/ti/TivaWare/inc/hw_memmap.h
 LIB/Mfrc522.obj: C:/ti/TivaWare/inc/hw_types.h
 LIB/Mfrc522.obj: C:/ti/TivaWare/inc/hw_i2c.h
+LIB/Mfrc522.obj: C:/ti/TivaWare/inc/hw_timer.h
+LIB/Mfrc522.obj: C:/ti/TivaWare/inc/hw_uart.h
+LIB/Mfrc522.obj: C:/ti/TivaWare/driverlib/systick.h
 LIB/Mfrc522.obj: C:/ti/TivaWare/driverlib/gpio.h
 LIB/Mfrc522.obj: C:/ti/TivaWare/driverlib/pin_map.h
 LIB/Mfrc522.obj: C:/ti/TivaWare/driverlib/sysctl.h
@@ -38,6 +41,7 @@ LIB/Mfrc522.obj: ../LIB/../LCD/lcd_i2c.h
 LIB/Mfrc522.obj: ../LIB/../LCD/../include.h
 LIB/Mfrc522.obj: ../LIB/../UART/UART.h
 LIB/Mfrc522.obj: ../LIB/../RTC/RTC.h
+LIB/Mfrc522.obj: ../LIB/../TIMER/timer.h
 
 ../LIB/Mfrc522.c: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdbool.h: 
@@ -54,6 +58,9 @@ C:/ti/TivaWare/inc/hw_gpio.h:
 C:/ti/TivaWare/inc/hw_memmap.h: 
 C:/ti/TivaWare/inc/hw_types.h: 
 C:/ti/TivaWare/inc/hw_i2c.h: 
+C:/ti/TivaWare/inc/hw_timer.h: 
+C:/ti/TivaWare/inc/hw_uart.h: 
+C:/ti/TivaWare/driverlib/systick.h: 
 C:/ti/TivaWare/driverlib/gpio.h: 
 C:/ti/TivaWare/driverlib/pin_map.h: 
 C:/ti/TivaWare/driverlib/sysctl.h: 
@@ -77,3 +84,4 @@ C:/ti/TivaWare/driverlib/rom.h:
 ../LIB/../LCD/../include.h: 
 ../LIB/../UART/UART.h: 
 ../LIB/../RTC/RTC.h: 
+../LIB/../TIMER/timer.h: 

@@ -12,7 +12,7 @@
           <td>UID</td>
           <td>Name</td>
           <td>Phone</td>
-          <td>Atuthorized</td>
+          <td>Authorized</td>
           <td>Time</td>
           <td>Edit</td>
           <td>Delete</td>
@@ -26,7 +26,7 @@
             <td>{{$user->Name}}</td>
             <td>{{$user->Phone_number}}</td>
             <td>{{$user->Authorized}}</td>
-            <td>{{$user->updated_at}}</td>
+            <td>{{$user->Time}}</td>
             <td>
                 <a href="{{ route('users.edit',$user->id)}}" class="btn btn-primary">Edit</a>
             </td>
