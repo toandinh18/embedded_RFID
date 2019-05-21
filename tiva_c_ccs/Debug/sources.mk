@@ -115,5 +115,6 @@ SUBDIRS := \
 LCD \
 LIB \
 RTC \
+TIMER \
 UART \
 

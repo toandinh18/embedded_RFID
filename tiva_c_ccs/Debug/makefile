@@ -16,6 +16,7 @@ ORDERED_OBJS += \
 "./LCD/lcd_i2c.obj" \
 "./LIB/Mfrc522.obj" \
 "./RTC/RTC.obj" \
+"./TIMER/timer.obj" \
 "./UART/UART.obj" \
 "C:/ti/TivaWare/driverlib/ccs/Debug/driverlib.lib" \
 "../tm4c123gh6pm.cmd" \
@@ -33,11 +34,13 @@ RMDIR := RMDIR /S/Q
 -include LCD/subdir_vars.mk
 -include LIB/subdir_vars.mk
 -include RTC/subdir_vars.mk
+-include TIMER/subdir_vars.mk
 -include UART/subdir_vars.mk
 -include subdir_rules.mk
 -include LCD/subdir_rules.mk
 -include LIB/subdir_rules.mk
 -include RTC/subdir_rules.mk
+-include TIMER/subdir_rules.mk
 -include UART/subdir_rules.mk
 -include objects.mk
 
@@ -169,8 +172,8 @@ nhung.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "uartstdio.obj" "LCD\lcd_i2c.obj" "LIB\Mfrc522.obj" "RTC\RTC.obj" "UART\UART.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "uartstdio.d" "LCD\lcd_i2c.d" "LIB\Mfrc522.d" "RTC\RTC.d" "UART\UART.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "uartstdio.obj" "LCD\lcd_i2c.obj" "LIB\Mfrc522.obj" "RTC\RTC.obj" "TIMER\timer.obj" "UART\UART.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "uartstdio.d" "LCD\lcd_i2c.d" "LIB\Mfrc522.d" "RTC\RTC.d" "TIMER\timer.d" "UART\UART.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -16,6 +16,54 @@
 #define NRSTPD_BASE    0x40025000       //GPIO_PORTF_BASE
 #define SSI_BASE       0x4000A000      //SSI2_BASE
 
+extern void InitSSI() {
+    uint32_t junkAuxVar;
+
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_SSI2);
+
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB); //SDA
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF); //reset
+
+    GPIOPinConfigure(GPIO_PB4_SSI2CLK);
+    GPIOPinConfigure(GPIO_PB5_SSI2FSS);
+    GPIOPinConfigure(GPIO_PB6_SSI2RX);
+    GPIOPinConfigure(GPIO_PB7_SSI2TX);
+
+    GPIOPinTypeSSI(GPIO_PORTB_BASE, GPIO_PIN_4 | GPIO_PIN_6 |
+                   GPIO_PIN_7);
+
+    GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, GPIO_PIN_5); //chipSelectPin
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_0); //NRSTPD
+
+    //
+    SSIConfigSetExpClk(SSI2_BASE, SysCtlClockGet(), SSI_FRF_MOTO_MODE_0, SSI_MODE_MASTER, 4000000, 8);
+    //
+    // Enable the SSI0 module.
+    //
+    SSIEnable(SSI2_BASE);
+
+    while(SSIDataGetNonBlocking(SSI2_BASE, &junkAuxVar)){}
+
+    UARTprintf("SSI Enabled! SPI Mode!  \nData: 8bits.\n\n");
+
+}
+
+extern void initLeds() {
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
+}
+
+
+extern void dumpHex(unsigned char* buffer, int len) {
+    int i;
+    UARTprintf(" ");
+    for(i=0; i < len; i++) {
+        UARTprintf("%x ", buffer[i]);
+    }
+    UARTprintf("  FIM! \r\n"); //End
+}
+
+
 uint8_t SPI_transfer(uint8_t data){
        uint32_t rxtxData;
 

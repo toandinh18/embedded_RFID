@@ -1,1 +1,1 @@
-"./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uartstdio.obj" "./LCD/lcd_i2c.obj" "./LIB/Mfrc522.obj" "./RTC/RTC.obj" "./UART/UART.obj" "C:/ti/TivaWare/driverlib/ccs/Debug/driverlib.lib" "../tm4c123gh6pm.cmd" -llibc.a 
+"./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uartstdio.obj" "./LCD/lcd_i2c.obj" "./LIB/Mfrc522.obj" "./RTC/RTC.obj" "./TIMER/timer.obj" "./UART/UART.obj" "C:/ti/TivaWare/driverlib/ccs/Debug/driverlib.lib" "../tm4c123gh6pm.cmd" -llibc.a 

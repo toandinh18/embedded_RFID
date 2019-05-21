@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
+
 class UserController extends Controller
 {
     /**
@@ -34,17 +37,18 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getdata(Request $request)
-    {
-        $request->validate([
-            'UID'=>'required',
-        ]);
-        
-        $users =new User([
-            'UID'=>$request->get('UID')
-        ]);
+    {   
+        $user=New User();
+        $user->UID=$request->get('UID');
+        if($data = DB::table('users')->where('UID','=',$user->UID)->first() ) {        
+            $user->Phone_number=$data->Phone_number;
+            $user->Authorized=$data->Authorized;
+            $user->Name=$data->Name;
+        }           
+        $user->Time=$request->get('Time');
+        $user->save();
 
-        $users->save();
-        return redirect('/users')->with('success','ADD');
+        return response()->json(['oke'=>$user],200);
     }
 
     /**
