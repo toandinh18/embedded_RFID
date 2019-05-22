@@ -60,6 +60,7 @@ void loop() {
     delay(500);
     HTTPS_Send_Data(getUIDs,getTimes);
     k=0;
+    digitalWrite(LED_BUILTIN, LOW);
     delay(500);
   }                    
 }
