@@ -13,7 +13,7 @@ String getUIDs;
 String getTimes;
 
 volatile int i=0;
-volatile int k=0;
+int k=0;
 
 void setup() {
   delay(1000);
@@ -53,6 +53,7 @@ void UART_Receive(void);
 void loop() {
   UART_Receive();
   if(k){
+    digitalWrite(LED_BUILTIN, LOW);
     Serial.print(getUIDs);
     Serial.print("\n");
     Serial.print(getTimes);
@@ -60,7 +61,7 @@ void loop() {
     delay(500);
     HTTPS_Send_Data(getUIDs,getTimes);
     k=0;
-    digitalWrite(LED_BUILTIN, LOW);
+    digitalWrite(LED_BUILTIN, HIGH);
     delay(500);
   }                    
 }
@@ -114,13 +115,20 @@ void HTTPS_Send_Data(String getUID, String getTime) {
   
   Serial.print("HTTPS Connecting");
   int r=0; //retry counter
-  while((!httpsClient.connect(host, httpsPort)) && (r < 30)){
-      delay(100);
+  while((!httpsClient.connect(host, httpsPort)) && (r < 10)){
+      delay(50);
       Serial.print(".");
       r++;
   }
-  if(r==30) {
+  if(r==10) {
     Serial.println("Connection failed");
+    int k;
+    for (k=0;k<10;k++) {
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(30);
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(30);
+    }
   }
   else {
     Serial.println("Connected to web");
