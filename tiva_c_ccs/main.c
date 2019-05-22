@@ -31,8 +31,8 @@ unsigned char cardID[CARD_LENGTH];
     initI2C();  // config i2c cho LCD
 
     RTC_InitI2C();
-    RTC_Init();
-    SetTimeDate(10,10,10,4,10,10,19); //30 giay 32 phut 8h thu4 ngay 5 thang 11
+    //RTC_Init();
+    //SetTimeDate(00,39,17,6,24,5,19); //30 giay 32 phut 8h thu4 ngay 5 thang 11
 
     lcd_init();
     clear();
@@ -68,11 +68,11 @@ unsigned char cardID[CARD_LENGTH];
                    UARTCharPut(UART1_BASE,cardID[i]);
                    Wait(1);
                 }
-                UARTCharPut(UART1_BASE,GetClock(SEC));
+                UARTCharPut(UART1_BASE,GetClock(HRS));
                 Wait(1);
                 UARTCharPut(UART1_BASE,GetClock(MIN));
                 Wait(1);
-                UARTCharPut(UART1_BASE,GetClock(HRS));
+                UARTCharPut(UART1_BASE,GetClock(SEC));
                 Wait(1);
                 UARTCharPut(UART1_BASE,GetClock(DAY));
                 Wait(1);
@@ -80,7 +80,7 @@ unsigned char cardID[CARD_LENGTH];
                 Wait(1);
                 UARTCharPut(UART1_BASE,GetClock(MONTH));
                 Wait(1);
-                //UARTprintf("%02d : %02d : %02d \n%02d / %02d / %02d / %02d \n",hour,min,sec,day,date,month,year);
+                UARTprintf("%02d : %02d : %02d \n",GetClock(HRS),GetClock(MIN),GetClock(SEC));
                 GPIOPinWrite(GPIO_PORTF_BASE, blueLED, 0);
                 Wait(2); //Delay
            }
