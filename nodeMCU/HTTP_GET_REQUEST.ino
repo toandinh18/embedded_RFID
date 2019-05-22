@@ -3,8 +3,8 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
   
-const char *ssid = "Seven coffee";  //ENTER YOUR WIFI SETTINGS
-const char *password = "88889999";
+const char *ssid = "GATSBY";  //ENTER YOUR WIFI SETTINGS
+const char *password = "12356789";
 const char *host = "rfidembedded.000webhostapp.com";
 const int httpsPort = 443;  //HTTPS= 443 and HTTP = 80
 const char fingerprint[] PROGMEM = "42e9f5f9302114cd75a141ef3933e8d4c797b97c";
@@ -20,7 +20,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
-  /*
+  
   WiFi.mode(WIFI_OFF);        //Prevents reconnection issue (taking too long to connect)
   delay(1000);
   WiFi.mode(WIFI_STA);        //Only Station No AP, This line hides the viewing of ESP as wifi hotspot
@@ -40,25 +40,32 @@ void setup() {
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());  //IP address assigned to your ESP
-  */
+  
 }
 
 void HTTPS_Send_Data(void);
-int UART_Receive(void);
+void UART_Receive(void);
 
 //=======================================================================
 //                    Main Program Loop
 //=======================================================================
 
 void loop() {
-  if(UART_Receive()){
+  UART_Receive();
+  if(k){
+    Serial.print(getUIDs);
+    Serial.print("\n");
+    Serial.print(getTimes);
+    Serial.print("\n");
+    delay(500);
     HTTPS_Send_Data(getUIDs,getTimes);
-    k=0;    
+    k=0;
+    delay(500);
   }                    
 }
 
 ///////////////////////////////////////////////
-int UART_Receive(void) {
+void UART_Receive(void) {
   while (Serial.available()) {
     digitalWrite(LED_BUILTIN, LOW);
     if(i==0) {  
@@ -82,20 +89,15 @@ int UART_Receive(void) {
           }
           else {
             getTimes+=":" + String(Serial.read());
-            Serial.print(getUIDs);
-            Serial.print("\n");
-            Serial.print(getTimes);
-            Serial.print("\n");
             i=0;
             k=1;
-          }
+          } 
         } 
       } 
     }
   }
   digitalWrite(LED_BUILTIN, HIGH);
   delay(100);
-  return k;
 }
 
 /////////////////////////////////////////////
@@ -124,7 +126,7 @@ void HTTPS_Send_Data(String getUID, String getTime) {
   }
   
   String  Link;
-  Link = "/api/getdata?UID=" + getUID+"&Time= " +getTime;
+  Link = "/api/getdata?UID=" +getUID +"&Time=" +getTime;
 
   Serial.print("requesting URL: ");
   Serial.println(host+Link);
