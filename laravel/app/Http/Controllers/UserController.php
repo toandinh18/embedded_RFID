@@ -40,7 +40,10 @@ class UserController extends Controller
     {   
         $user=New User();
         $user->UID=$request->get('UID');
-        if($data = DB::table('users')->where('UID','=',$user->UID)->first() ) {        
+        if($data = DB::table('users')->where([
+                                            ['UID','=',$user->UID],
+                                            ['Name','<>',NULL],
+                                    ])->first() ) {       
             $user->Phone_number=$data->Phone_number;
             $user->Authorized=$data->Authorized;
             $user->Name=$data->Name;

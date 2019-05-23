@@ -13,7 +13,7 @@ String getUIDs;
 String getTimes;
 
 volatile int i=0;
-int k=0;
+volatile int k=0;
 
 void setup() {
   delay(1000);
